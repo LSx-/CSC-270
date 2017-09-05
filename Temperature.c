@@ -27,8 +27,10 @@ int main(void)
 {
     float temp;
     char type;
+   
     printf("Enter input Temperature: ");
     scanf("%f%c",&temp,&type);
+   
     //if the user put in f,
     //we will display the Fahrenheit that was inputted and then convert it
     if (type == 'f'|| type =='F') 
