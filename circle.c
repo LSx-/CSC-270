@@ -41,7 +41,7 @@ float a =r * r * PI;
 
 printf("A Circle with a Radius of: %.3f \n", r);
 printf("The Diameter is: %.3f \n",d);
-printf("The Area is:%.3f \n", a);
+printf("The Area is: %.3f \n", a);
 printf("The Circumference is: %.3f \n", c);
 
 int x;
