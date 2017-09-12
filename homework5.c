@@ -34,15 +34,26 @@ int eulerLogic(int factor1, int factor2)
 int main(void)
 {
     int i = 100;
+    int product;
     
     while(i < 1000)
     {
         int j = 100;
         while(j < 1000)
         {
+            product = i * j;
+	    if (eulerLogic(product)) {
+		    if (product > maxp) {
+			    maxp = product;
+		    }
+	    }
+
+		/*
             int f1 = i;
             int f2 = j;
             eulerLogic(f1,f2);
+		*/
+	    
             j++;
         }
         i++;
