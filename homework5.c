@@ -5,9 +5,10 @@
  *  more details in teh EulerLogic method comment
  *
  *  Created by Michael Castillo on 9/4/17.
- *  Version 1.0
+ *  Version 1.2
  *
- *  Credit/Sources: 2dtx.com for giving me factors after googling palindrome numbers
+ *  Credit/Sources: professor Lee Stekoski, for trying to help me out on seeing
+ *  if the computer can recognize palindromes
  */
 
 #include <stdio.h>
@@ -16,32 +17,36 @@
  * The EulerLogic method.
  *
  * Here is where all of the hardwork for the computer will take place
- * The Euler logic is supposed to do palindrome and give us a product
- * that will be the "largest palindrome product" and the way to get this
- * is by doing multiplying  two 3 digit numbers into each other and they
- * MUST read back and forth the same way
+ * the computer will take the 3 digit factor and then multiply each other
  *
  *
  */
 int eulerLogic(int factor1, int factor2)
 {
     
-    int sum = factor1 * factor2;
-    printf("%d, %d, %d \n", factor1, factor2, sum);
+    int product = factor1 * factor2;
+    printf("%d, %d, %d \n", factor1, factor2, product);
     
-    return sum;
+    return product;
 }
 
 //I will be doing test runs here
 int main(void)
 {
-    //tests
-    eulerLogic(91,99);
-    eulerLogic(411,219);
-    eulerLogic(328,271);
-    eulerLogic(429,231);
-    eulerLogic(913,993);
+    int i = 100;
+    
+    while(i < 1000)
+    {
+        int j = 100;
+        while(j < 1000)
+        {
+            int f1 = i;
+            int f2 = j;
+            eulerLogic(f1,f2);
+            j++;
+        }
+        i++;
+    }
     
     return 0;
-    
 }
