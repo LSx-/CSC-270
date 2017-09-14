@@ -5,7 +5,7 @@
  *  more details in teh EulerLogic method comment
  *
  *  Created by Michael Castillo on 9/4/17.
- *  Version 1.2
+ *  Version 2.0
  *
  *  Credit/Sources: professor Lee Stekoski, for trying to help me out on seeing
  *  if the computer can recognize palindromes
@@ -21,40 +21,53 @@
  *
  *
  */
-int eulerLogic(int factor1, int factor2)
+int eulerLogic(int factor1 , int factor2)
 {
     
-    int product = factor1 * factor2;
-    printf("%d, %d, %d \n", factor1, factor2, product);
+    int reverse = 0;
+    int remainder = 0;
+    int product = factor1*factor2;
     
-    return product;
+    while (product > 0)
+    {
+        remainder = product % 10;
+        product = product / 10;
+        reverse = 10 * reverse + remainder;
+        
+    }
+    
+    if(reverse == product)
+    {
+        int maxP = 0;
+        if(product > maxP)
+        {
+            maxP = product;
+            printf("%d, %d, %d\n", factor1, factor2, product);
+
+        }
+    }
+    else
+    {
+        return 1;
+    }
+    return 0;
 }
 
 //I will be doing test runs here
 int main(void)
 {
     int i = 100;
-    int product;
     
-    while(i < 1000)
+    while(i< 1000)
     {
+        
         int j = 100;
-        while(j < 1000)
+        
+        while(j<1000)
         {
-            product = i * j;
-	    if (eulerLogic(product)) {
-		    if (product > maxp) {
-			    maxp = product;
-		    }
-	    }
-
-		/*
-            int f1 = i;
-            int f2 = j;
-            eulerLogic(f1,f2);
-		*/
-	    
+            eulerLogic(i,j);
             j++;
+            
         }
         i++;
     }
