@@ -37,9 +37,24 @@ int main(int argc, char *argv[])
 }
 
 
-void initBoard(int vBoard[][YSIZE])
+void initBoard(int vBoard[XSIZE][YSIZE])
 {
+	int i = 0;
+	while(i < XSIZE)
+	{
+		int j = 0;
+		while(j < YSIZE)
+		{
+			vBoard[i][j] = DEAD;
+		}
+	j++;
+	}
+	i++;
 
+	if(vBoard[XSIZE][YSIZE] > DEAD)
+	{
+	vBoard[XSIZE][YSIZE] = ALIVE;
+	}
 }
 
 void playRound(int vBoard[][YSIZE]) {
