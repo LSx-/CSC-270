@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 
 void initBoard(int vBoard[][YSIZE])
 {
-    for(int i = XSIZE; i >= 0; i--)
+    for(int i = XSIZE-1; i >= 0; i--)
     {
-        for(int j = 0; i < YSIZE; i++)
+        for(int j = 0; j < YSIZE; j++)
         {
 
             vBoard[i][j] = DEAD;
@@ -51,7 +51,8 @@ void initBoard(int vBoard[][YSIZE])
 
 }
 
-void playRound(int vBoard[][YSIZE]) {
+void playRound(int vBoard[][YSIZE])
+{
     
     int tmpBoard[XSIZE][YSIZE];
     initBoard(tmpBoard);
@@ -59,16 +60,33 @@ void playRound(int vBoard[][YSIZE]) {
     // perform the algorithm on vBoard, but update tmpBoard
     // with the new state
     
-    for(int i = 0; i < XSIZE; i++)
+    for(int i = XSIZE; i >= 0; i--)
     {
         for(int j = 0; j < YSIZE; j++)
-            neighbors(vBoard,i,j);
+        {
+           int n = neighbors(vBoard, i, j);
+            if(vBoard[i][j] == ALIVE)
+            {
+                if(n==2 || n==3)
+                {
+                    tmpBoard[i][j] = ALIVE;
+                }
+            }
+            else
+            {
+                if(n==3)
+                {
+                    tmpBoard[i][j] = ALIVE;
+                }
+            }
+        }
     }
-    
-    
+        
     // copy tmpBoard over vBoard
-    for (int y = 0; y < YSIZE; y++) {
-        for (int x = 0; x < XSIZE; x++) {
+    for (int y = 0; y < YSIZE; y++)
+    {
+        for (int x = 0; x < XSIZE; x++)
+        {
             vBoard[x][y] = tmpBoard[x][y];
         }
     }
@@ -112,7 +130,7 @@ void printBoard(int vBoard[][YSIZE])
     {
         for(int j = 0; j <YSIZE; j++)
         {
-            if(vBoard[i][j] != ALIVE)
+            if(vBoard[i][j] == DEAD)
             {
                 printf("|_|");
             }
