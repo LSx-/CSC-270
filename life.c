@@ -7,25 +7,54 @@
  *  editted by: Michael Castillo
  *  editted on: 9/14/17
  *
+ * Worked with Jennefer Maldonado for file reading
  */
 
 #include <stdio.h>
 #include <unistd.h>
 #include "life.h"
+#define BUFSIZE 100
+#define FILENAME "board.txt"
 
 int main(int argc, char *argv[])
 {
-    int board[XSIZE][YSIZE];
-    int rounds = DEFAULTROUNDS;
+   
     
+    FILE *boardFile;
+    char buffer[BUFSIZE];
+    int lineNo = 0;
+    
+    //Opening the board file
+    boardFile = fopen(FILENAME,"r");
+    if(boardFile == NULL)
+    {
+        return 1;
+    }
+    
+    int board[XSIZE][YSIZE];
     initBoard(board);
-    board[5][5] = ALIVE;
-    board[5][6] = ALIVE;
-    board[5][7] = ALIVE;
-    board[6][6] = ALIVE;
+    int rounds;
+
+    //continue reading until end of board.txt
+    while (!feof(boardFile))
+    {
+        int x;
+        int y;
+        
+        fgets(buffer,BUFSIZE,boardFile);
+        sscanf(buffer, "%d %d", &x, &y);
+        
+        board[x][y] = ALIVE;
+        
+        sscanf(buffer, "%d", &rounds);
+        
+    }
+    
+    fclose(boardFile);
     
     printf("Playing %d rounds.\n\n", rounds);
-    for (int i=0; i<rounds; i++) {
+    for (int i=0; i<rounds; i++)
+    {
         printf("Round: %d\n", i+1);
         printBoard(board);
         playRound(board);
