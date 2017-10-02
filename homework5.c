@@ -42,35 +42,27 @@ int eulerLogic(int factor1 , int factor2)
         if(product > maxP)
         {
             maxP = product;
-            printf("%d, %d, %d\n", factor1, factor2, product);
+            printf("%d, %d, %d\n", factor1, factor2, maxP);
+	    return maxP;
 
         }
     }
     else
     {
-        return 1;
+        return product;
     }
-    return 0;
+    return product;
 }
 
 //I will be doing test runs here
 int main(void)
 {
-    int i = 100;
-    
-    while(i< 1000)
-    {
-        
-        int j = 100;
-        
-        while(j<1000)
-        {
-            eulerLogic(i,j);
-            j++;
-            
-        }
-        i++;
-    }
-    
-    return 0;
+	for(int i = 100; i < 1000; i++)
+	{
+		for(int j = 100; j < 1000; j++)
+		{
+			eulerLogic(i,j);
+		}
+	}
+	return 0;
 }
