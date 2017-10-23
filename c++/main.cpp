@@ -13,21 +13,20 @@
 Temperature::Temperature(float degrees, int system)
 {
     this->celsius = degrees;
-    //this->
+    system = Temperature::Fahrenhiet
 }
 
-float Temperature::getCelsius() const
+float getCelsius() const
 {
     return Temperature::CELSIUS;
 }
 
-float Temperature::getFahrenheit() const
+float getFahrenheit() const
 {
     return Temperature::FAHRENHEIT;
 }
 
-float Temperature::getKelvin() const
+float getKelvin() const
 {
-    celsius = ( + 459.67) * 5/9;
     return Temperature::KELVIN;
 }
