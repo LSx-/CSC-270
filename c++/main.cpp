@@ -1,32 +1,25 @@
 /**
- * Main.cpp
+ * main.cpp
  *
  * Homework 1 (Temperature)
  * Created by Michael Castillo
  * Date: 10/20/17
  */
 
-#include <iostream>
-#include <strstream>
 #include "Temperature.h"
+#include <iostream>
 
-Temperature::Temperature(float degrees, int system)
+int main ()
 {
-    this->celsius = degrees;
-    system = Temperature::Fahrenhiet
-}
 
-float getCelsius() const
-{
-    return Temperature::CELSIUS;
-}
+float temp = 68.0;
 
-float getFahrenheit() const
-{
-    return Temperature::FAHRENHEIT;
-}
+std::cout << "Fahrenheit: " << temp << std::endl;
+Temperature t (temp,Temperature::FAHRENHEIT);
 
-float getKelvin() const
-{
-    return Temperature::KELVIN;
-}
+std::cout << "in Celsius: " << t.getCelsius() << std::endl;
+std::cout << "in Kelvin : " << t.getKelvin() << std::endl;
+
+return 0;
+
+};
