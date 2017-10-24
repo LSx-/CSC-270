@@ -4,10 +4,14 @@
  * Homework 1 (Temperature)
  * Created by Michael Castillo
  * Date: 10/20/17
+ *
+ *credit: Jennefer Maldonado
+ *reason: helping me get things defined
  */
 
 #include "Temperature.h"
 #include <iostream>
+
 
 int main ()
 {
@@ -22,4 +26,4 @@ std::cout << "in Kelvin : " << t.getKelvin() << std::endl;
 
 return 0;
 
-};
+}
