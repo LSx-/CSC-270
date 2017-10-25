@@ -12,12 +12,20 @@
 #include <string>
 using namespace std;
 
+//the person class ( the skeleton )
 class Person
 {
 public:
+    
 	//int id() const = 0;
+    
+    
 	Person(string name);
+    
+    //getting the name from the person parameter
 	string getname() const;
+    
+    
 	int getid() const;
 private:
 	int id;
@@ -29,8 +37,13 @@ class Professor : public Person
 {
 
 public:
+    //the professor class that has the parameters
 	Professor(string name, int publication, string rank);
+    
+    //this method will gets the publication from the professor parameter
 	int getPublication() const;
+    
+    //this method will get the rank of the professor parameter
 	string getRank() const;
 
 private:
@@ -44,9 +57,14 @@ class Student : public Person
 {
 
 public:
-	Student(string name, string minor, string major);
-	string getminor() const;
-	string getmajor() const;
+    //the student class with the needed parameters
+	Student(string name, string major, string minor);
+    
+    //this method will get the minor that is in the student parameter
+	string getMinor() const;
+    
+    //this method will get the major that is in the student parameter
+	string getMajor() const;
 
 private:
 	string minor;
