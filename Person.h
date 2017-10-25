@@ -10,40 +10,45 @@
 // Person Class
 #include <iostream>
 #include <string>
+using namespace std;
 
 class Person
 {
 public:
-	virtual int id() const = 0;
-	virtual std::string name() const = 0;
+	//int id() const = 0;
+	Person(string name);
+	string getname() const;
+	int getid() const;
 private:
-}
+	int id;
+	string name;
+};
 
 // Professor class
 class Professor : public Person
 {
 
 public:
-	Professor(int publication, string rank);
-
+	Professor(string name, int publication, string rank);
 	int getPublication() const;
-	std::string name() const;
-	int id() const;
-	int getID() const;
-	int setID() const;
+	string getRank() const;
 
 private:
-int publication;
-std::string rank();
+	int publication;
+	string rank;
 
-}
+};
 
 // Student Class
 class Student : public Person
 {
 
 public:
+	Student(string name, string minor, string major);
+	string getminor() const;
+	string getmajor() const;
 
 private:
-
-}
+	string minor;
+	string major;
+};
