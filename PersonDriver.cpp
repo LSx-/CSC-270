@@ -12,7 +12,20 @@
 #include <strstream>
 #include "Person.h"
 
-int main
+int main()
 {
-
+    
+    Professor l(leune, 14, assistant);
+    Student m(Michael, computerScience, games);
+    Student j(john, Information-Technology, none);
+    
+    std::cout << "Professor: " << l.getname() << " " << l.getPublication()
+    << " " << l.getRank() << " " << l.getid() << std::endl;
+    
+    std::cout << "student: " >> m.getname() << " " << m.getMajor() <<
+    " " << m.getMinor() << " " << m.getid() << std::endl;
+    
+    return 0;
+    
+    
 }
