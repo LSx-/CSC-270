@@ -1,10 +1,11 @@
-all:temp
+all:hw2
 
-temperature.o: temperature.cpp temperature.h
-	g++ -c temperature.cpp
+person.o: Person.cpp Person.h
+	g++ -c Person.cpp
 
-main.o: temperature.o main.cpp
-	g++ -c main.cpp
+main.o: person.o PersonDriver.cpp
+	g++ -c PersonDriver.cpp
 
-temp: main.o temperature.o
-	g++ -o temp main.o temperature.o
+hw2: main.o person.o
+	g++ -o hw2 -Wall main.o person.o
+
