@@ -14,16 +14,16 @@
 
 int main()
 {
+    int id = 4;
     
-    Professor l(leune, 14, assistant);
-    Student m(Michael, computerScience, games);
-    Student j(john, Information-Technology, none);
+    Professor l("leune", 14, "assistant");
+    Student m("Michael", "computerScience", "games");
+    Student j("john", "Information-Technology", "none");
     
-    std::cout << "Professor: " << l.getname() << " " << l.getPublication()
-    << " " << l.getRank() << " " << l.getid() << std::endl;
+    std::cout << l.getRank() << l.getname() << " has " << l.getPublication()
+    << " publications " << std::endl;
     
-    std::cout << "student: " >> m.getname() << " " << m.getMajor() <<
-    " " << m.getMinor() << " " << m.getid() << std::endl;
+    std::cout <<m.getMajor() << m.getname() << m.getMinor() << std::endl;
     
     return 0;
     
