@@ -1,29 +1,19 @@
-/**
- * main.cpp
- *
- * Homework 1 (Temperature)
- * Created by Michael Castillo
- * Date: 10/20/17
- *
- *credit: Jennefer Maldonado
- *reason: helping me get things defined
- */
-
-#include "Temperature.h"
 #include <iostream>
+#include "smoothie.h"
+using namespace std;
 
+int main() {
+    celery a(1.29);
+    banana b(.79);
+    kiwi k(2.19);
+    smoothie *s;
 
-int main ()
-{
+    s = new smoothie(&a);
+    cout << "A " << a.name() << " smoothie costs " << s->price() << endl;
 
-float temp = 68.0;
+    *s = *s + b;
+    cout << "A " << s->ingredients() << "smoothie costs "
+        << s->price() << endl;
 
-std::cout << "Fahrenheit: " << temp << std::endl;
-Temperature t (temp,Temperature::FAHRENHEIT);
-
-std::cout << "in Celsius: " << t.getCelsius() << std::endl;
-std::cout << "in Kelvin : " << t.getKelvin() << std::endl;
-
-return 0;
-
+    return 0;
 }

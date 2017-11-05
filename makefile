@@ -1,11 +1,13 @@
-all:hw2
+CXX=g++
+CXXFLAGS=-Wall
+OBS=produce.o fruit.o vegetable.o smoothie.o main.o
+all: smoothie
 
-person.o: Person.cpp Person.h
-	g++ -c Person.cpp
+clean:
+	rm -f $(OBS) smoothie
 
-main.o: person.o PersonDriver.cpp
-	g++ -c PersonDriver.cpp
+.o:
+	$(CXX) $(CXXFLAGS) -c $<
 
-hw2: main.o person.o
-	g++ -o hw2 -Wall main.o person.o
-
+smoothie: $(OBS)
+	$(CXX) -o $@ $(OBS)
